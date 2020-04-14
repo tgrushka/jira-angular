@@ -8,6 +8,7 @@ import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
 import com.grushka.heroes.dto.HeroModel;
 import com.grushka.heroes.entity.Hero;
 import net.java.ao.DBParam;
+import net.java.ao.Query;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -27,9 +28,20 @@ public class HeroesResource {
     }
 
     @GET
-    public Response getHeroes()
+    public Response getHeroes(@DefaultValue("") @QueryParam("name") String name)
     {
-        Hero[] heroes = ao.find(Hero.class);
+        Hero[] heroes;
+        if (name == "") {
+            heroes = ao.find(Hero.class);
+        } else {
+            heroes = ao.find(
+                Hero.class,
+                Query.select().where(
+                    "LOWER(NAME) LIKE LOWER(?)",
+                    "%" + name + "%"
+                )
+            );
+        }
         return Response.ok(new HeroModel(heroes)).build();
     }
 
