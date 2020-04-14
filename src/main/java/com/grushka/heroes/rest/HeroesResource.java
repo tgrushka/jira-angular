@@ -41,7 +41,7 @@ public class HeroesResource {
                 Hero.class,
                 new DBParam("NAME", heroModel.hero.name)
             );
-            return Response.ok(heroModel).build();
+            return Response.ok(new HeroModel(hero)).build();
         } else {
             return Response.status(Response.Status.NOT_ACCEPTABLE).build();
         }

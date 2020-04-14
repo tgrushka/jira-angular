@@ -12,7 +12,7 @@
   <resource type="i18n" name="i18n" location="heroes"/>  
   <servlet name="Heroes Servlet" i18n-name-key="heroes-servlet.name" key="heroes-servlet" class="com.grushka.heroes.servlet.HeroesServlet"> 
     <description key="heroes-servlet.description">The Heroes Servlet Plugin</description>  
-    <url-pattern>/heroes</url-pattern> 
+    <url-pattern>/heroes*</url-pattern>
   </servlet>  
   <rest name="Heroes Resource" i18n-name-key="heroes-resource.name" key="heroes-resource" path="/heroes" version="1.0"> 
     <description key="heroes-resource.description">The Heroes Resource Plugin</description> 

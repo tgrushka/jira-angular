@@ -3,9 +3,12 @@
 /dist
 /tmp
 /out-tsc
+src/main/resources/META-INF/plugin-descriptor
+src/main/resources/client
 
 # dependencies
 node_modules
+node
 
 # IDEs and editors
 /.idea

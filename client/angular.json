@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular.io-example": {
+    "com.grushka.heroes.client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -11,9 +11,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist",
+            "customWebpackConfig": {
+              "path": "custom-webpack.config.js",
+              "replaceDuplicatePlugins": true
+            },
+            "outputHashing": "none",
+            "outputPath": "../src/main/resources/client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -35,6 +40,7 @@
               }],
               "optimization": true,
               "outputHashing": "all",
+              "deleteOutputPath": true,
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -59,19 +65,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular.io-example:build",
+            "browserTarget": "com.grushka.heroes.client:build",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular.io-example:build:production"
+              "browserTarget": "com.grushka.heroes.client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular.io-example:build"
+            "browserTarget": "com.grushka.heroes.client:build"
           }
         },
         "test": {
