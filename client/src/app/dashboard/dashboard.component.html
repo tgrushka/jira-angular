@@ -1,5 +1,220 @@
 <h1>Dashboard</h1>
 
+
+
+
+<section id="content" role="main">
+  <!-- AUI Sidebar -->
+  <div class="aui-sidebar">
+    <div class="aui-sidebar-wrapper">
+      <div class="aui-sidebar-body">
+
+        <!-- AUI Page Header -->
+        <header class="aui-page-header">
+          <div class="aui-page-header-inner">
+            <div class="aui-page-header-image">
+                            <span class="aui-avatar aui-avatar-project aui-avatar-large">
+                                <span class="aui-avatar-inner">
+                                    <img src="images/avatar-project.svg" alt="" role="presentation" />
+                                </span>
+                            </span>
+
+            </div>
+            <div class="aui-page-header-main">
+              <h1>
+                AUI Sidebar
+              </h1>
+              <ol class="aui-nav aui-nav-breadcrumbs">
+                <li>
+                  <a href="#"><span class="aui-nav-item-label">This is a really really long title for whatever this is</span></a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </header>
+
+        <!-- AUI Navigation -->
+        <nav class="aui-navgroup aui-navgroup-vertical">
+          <div class="aui-navgroup-inner">
+
+            <!-- A Sidebar group will collapse into a single trigger icon when sidebar is collapsed -->
+            <!-- The 'actions' sidebar group type will be styled differently from normal groups when sidebar is collapsed -->
+            <div class="aui-sidebar-group aui-sidebar-group-actions">
+
+              <!-- the AUI Nav heading will be used as the tooltip text -->
+              <div class="aui-nav-heading" title="Actions">
+                <strong>Actions</strong>
+              </div>
+
+              <!-- If a sidebar group does not have a nav heading, then the aui-nav's title attribute will be used
+                   for the tooltip for the group -->
+              <ul class="aui-nav" title="Page actions">
+                <li>
+                  <a class="aui-nav-item" href="#" title="Edit">Edit</a>
+                </li>
+                <li>
+                  <a class="aui-nav-item" href="#" title="View">View</a>
+                </li>
+                <li>
+                  <a class="aui-nav-item" href="#" title="Share">Share</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- A "Tier One" Sidebar group will display all of its nav items, but all nav items MUST have an AUI Icon
+                 which will be used when the sidebar is collapsed -->
+            <div class="aui-sidebar-group aui-sidebar-group-tier-one">
+
+              <!-- in a "Tier One" Sidebar group, AUI Nav heading is ignored, and each nav item's label will be used
+                   as the tooltip text instead -->
+              <div class="aui-nav-heading" title="Stuff">
+                <strong>Simple Nav</strong>
+              </div>
+
+              <ul class="aui-nav">
+                <li class="aui-nav-selected">
+                  <a class="aui-nav-item" href="#">
+
+                    <!-- "Tier One" navigation items MUST have an AUI Icon before the text label -->
+                    <span class="aui-icon aui-icon-small aui-iconfont-info"></span>
+
+
+                    <!-- "Tier One" Nav items labels also need an extra SPAN around them with the aui-nav-item-label class -->
+                    <span class="aui-nav-item-label">Summary</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="aui-nav-item" href="#" title="This is a really really long title for whatever this is">
+                    <span class="aui-icon aui-icon-small aui-iconfont-details"></span>
+                    <span class="aui-nav-item-label">Issues</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="aui-nav-item" href="#">
+                    <span class="aui-icon aui-icon-small aui-iconfont-jira-completed-task"></span>
+                    <span class="aui-nav-item-label">Road Map</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="aui-nav-item" href="#">
+                    <span class="aui-icon aui-icon-small aui-iconfont-time"></span>
+                    <span class="aui-nav-item-label">Versions</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="aui-nav-item" href="#">
+                    <span class="aui-icon aui-icon-small aui-iconfont-devtools-submodule"></span>
+                    <span class="aui-nav-item-label">Components</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="aui-nav-item" href="#">
+                    <span class="aui-icon aui-icon-small aui-iconfont-devtools-tag"></span>
+                    <span class="aui-nav-item-label">Labels</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Sidebar footer contains the expand/collapse trigger, and optionally a button or a dropdown with configuration settings -->
+      <div class="aui-sidebar-footer">
+        <a href="https://example.com" class="aui-button aui-button-subtle aui-sidebar-settings-button" title="Settings">
+          <span class="aui-icon aui-icon-small aui-iconfont-configure"></span>
+          <span class="aui-button-label">Settings</span>
+        </a>
+        <a class="aui-button aui-button-subtle aui-sidebar-toggle aui-sidebar-footer-tipsy" title="Collapse sidebar ( [ )">
+          <span class="aui-icon aui-icon-small"></span>
+        </a>
+      </div>
+    </div>
+  </div><!-- end AUI Sidebar -->
+
+  <div class="aui-page-panel">
+    <div class="aui-page-panel-inner">
+      <section class="aui-page-panel-content">
+        <!-- Page content goes here -->
+      </section>
+    </div>
+  </div>
+</section>
+
+
+
+<h2>Forms</h2>
+
+<form class="aui long-label">
+  <fieldset>
+    <div class="field-group">
+      <aui-label for="toggle-demo">Send outgoing email</aui-label>
+      <aui-toggle id="toggle-demo" label="Send outgoing email" checked tooltip-on="Enabled" tooltip-off="Disabled"></aui-toggle>
+    </div>
+
+    <div class="field-group">
+      <aui-label for="demo-async-select">Async Heroes:</aui-label>
+      <aui-select
+        id="demo-async-select"
+        name="hero"
+        src="/jira/rest/heroes/1.0/heroes/autocomplete"
+        placeholder="Select a Hero"
+      >
+      </aui-select>
+    </div>
+
+    <div class="field-group">
+      <aui-label for="demo-classic-select">Choose your product synchronously:</aui-label>
+      <aui-select
+        id="demo-classic-select"
+        name="product"
+        placeholder="Select a product"
+      >
+        <aui-option>HipChat</aui-option>
+        <aui-option>JIRA</aui-option>
+        <aui-option>Confluence</aui-option>
+        <aui-option>Stash</aui-option>
+        <aui-option>FeCru</aui-option>
+      </aui-select>
+    </div>
+
+    <div class="field-group">
+      <label for="demo-select2-single">Select2 Single</label>
+      <select class="aui-select2" id="demo-select2-single">
+        <option value="CONF">Confluence</option>
+        <option value="JIRA">JIRA</option>
+        <option value="BAM">Bamboo</option>
+        <option value="JAG">JIRA Agile</option>
+        <option value="CAP">JIRA Capture</option>
+        <option value="AUI">AUI</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="demo-select2-multi">Select2 Multiple</label>
+      <select class="aui-select2" id="demo-select2-multi" multiple>
+        <option value="CONF">Confluence</option>
+        <option value="JIRA">JIRA</option>
+        <option value="BAM">Bamboo</option>
+        <option value="JAG">JIRA Agile</option>
+        <option value="CAP">JIRA Capture</option>
+        <option value="AUI">AUI</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="demo-date-field">Select a date <span class="aui-icon icon-required"> required</span></label>
+      <input class="text aui-date-picker" id="demo-date-field" type="date" max="2021-01-25" min="2011-12-25" />
+    </div>
+
+    <div class="field-group">
+      <label for="demo-message-length">Demo field <span class="aui-icon icon-required"> required</span></label>
+      <input class="text" type="text" id="demo-message-length" name="demo-message-length" title="first name" data-aui-validation-field minlength="10">
+      <div class="description">At least 10 characters</div>
+    </div>
+  </fieldset>
+</form>
+
 <h2>Toolbar2 With Tooltips</h2>
 
 <div class="aui-flatpack-example toolbar2-example">
@@ -87,10 +302,10 @@
       <table class="aui">
         <thead>
         <tr>
-          <th id="basic-number">#</th>
-          <th id="basic-fname">First name</th>
-          <th id="basic-lname">Last name</th>
-          <th id="basic-username">Username</th>
+          <th>#</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Username</th>
         </tr>
         </thead>
         <tbody>
@@ -120,10 +335,10 @@
       <table class="aui">
         <thead>
         <tr>
-          <th id="basic-number">#</th>
-          <th id="basic-fname">First name</th>
-          <th id="basic-lname">Last name</th>
-          <th id="basic-username">Username</th>
+          <th>#</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Username</th>
         </tr>
         </thead>
         <tbody>
@@ -153,10 +368,10 @@
       <table class="aui">
         <thead>
         <tr>
-          <th id="basic-number">#</th>
-          <th id="basic-fname">First name</th>
-          <th id="basic-lname">Last name</th>
-          <th id="basic-username">Username</th>
+          <th>#</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Username</th>
         </tr>
         </thead>
         <tbody>
@@ -288,8 +503,8 @@
   <div id="icons-list">
     <span
       *ngFor="let icon of icons; let i=index"
-      class="aui-icon aui-icon-small aui-iconfont-{{ icon }}"
-      style="color: {{ colors[i % colors.length] }}"
+      class="color-{{ colors[i % colors.length] }} aui-icon aui-icon-large aui-iconfont-{{ icon }}"
+      title="{{ icon }}"
     ></span>
   </div>
 </div>
@@ -297,7 +512,15 @@
 <p>Spinner</p>
 <aui-spinner></aui-spinner>
 
-<h2>Inline Dialog</h2>
+<h2>Dialogs</h2>
+
+<button class="aui-button" aria-controls="inline-dialog-help" data-aui-trigger>Help dialog trigger</button>
+
+<aui-inline-dialog id="inline-dialog-help" class="aui-help" alignment="bottom center">
+  Helpful help message here!
+</aui-inline-dialog>
+
+
 
 <button data-aui-trigger aria-controls="more-details" class="aui-button">
   Show Inline Dialog
@@ -305,6 +528,34 @@
 <aui-inline-dialog id="more-details">
   <p>Lorem ipsum.</p>
 </aui-inline-dialog>
+
+
+
+
+<!-- Create a trigger which will be used by the JavaScript -->
+<button (click)="dialog.show()" id="dialog-show-button" class="aui-button">Show dialog</button>
+
+<section id="demo-dialog" class="aui-dialog2 aui-dialog2-small aui-layer" role="dialog" aria-hidden="true">
+  <header class="aui-dialog2-header">
+    <h2 class="aui-dialog2-header-main">Captain Picard...</h2>
+    <button class="aui-dialog2-header-close" aria-label="close">
+      <span class="aui-icon aui-icon-small aui-iconfont-close-dialog"></span>
+    </button>
+  </header>
+  <div class="aui-dialog2-content">
+    <p>We've detected debris of some sort in a loose orbit.</p>
+    <p>I suggest we beam a section aboard for analysis...</p>
+  </div>
+  <footer class="aui-dialog2-footer">
+    <div class="aui-dialog2-footer-actions">
+      <button (click)="dialog.hide()" id="dialog-submit-button" class="aui-button aui-button-primary">Make it so</button>
+    </div>
+  </footer>
+</section>
+
+
+
+
 
 <h2>Flag</h2>
 
@@ -355,30 +606,6 @@
     <aui-item-checkbox interactive>Rust</aui-item-checkbox>
   </aui-section>
 </aui-dropdown-menu>
-
-
-<h2>Dialog Test</h2>
-
-<!-- Create a trigger which will be used by the JavaScript -->
-<button (click)="dialog.show()" id="dialog-show-button" class="aui-button">Show dialog</button>
-
-<section id="demo-dialog" class="aui-dialog2 aui-dialog2-small aui-layer" role="dialog" aria-hidden="true">
-  <header class="aui-dialog2-header">
-    <h2 class="aui-dialog2-header-main">Captain Picard...</h2>
-    <button class="aui-dialog2-header-close" aria-label="close">
-      <span class="aui-icon aui-icon-small aui-iconfont-close-dialog"></span>
-    </button>
-  </header>
-  <div class="aui-dialog2-content">
-    <p>We've detected debris of some sort in a loose orbit.</p>
-    <p>I suggest we beam a section aboard for analysis...</p>
-  </div>
-  <footer class="aui-dialog2-footer">
-    <div class="aui-dialog2-footer-actions">
-      <button (click)="dialog.hide()" id="dialog-submit-button" class="aui-button aui-button-primary">Make it so</button>
-    </div>
-  </footer>
-</section>
 
 
 <h3>Top Heroes</h3>

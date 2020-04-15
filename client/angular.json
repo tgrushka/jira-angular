@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/global.styles.scss"
+              "src/global.styles.less"
             ],
             "scripts": []
           },
@@ -42,8 +42,8 @@
             "jira-dev": {
               "scripts": [],
               "fileReplacements": [{
-                "replace": "src/global.styles.scss",
-                "with": "src/global.styles.prod.scss"
+                "replace": "src/global.styles.less",
+                "with": "src/global.styles.prod.less"
               }]
             },
             "production": {
@@ -51,8 +51,8 @@
                 "replace": "src/environments/environment.ts",
                 "with": "src/environments/environment.prod.ts"
               }, {
-                "replace": "src/global.styles.scss",
-                "with": "src/global.styles.prod.scss"
+                "replace": "src/global.styles.less",
+                "with": "src/global.styles.prod.less"
               }],
               "optimization": true,
               "outputHashing": "all",
@@ -111,7 +111,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/global.styles.scss"
+              "src/global.styles.less"
             ],
             "scripts": []
           }

@@ -6,6 +6,7 @@ import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugins.rest.common.security.AnonymousAllowed;
 import com.grushka.heroes.dto.HeroModel;
+import com.grushka.heroes.dto.AutocompleteModel;
 import com.grushka.heroes.entity.Hero;
 import net.java.ao.DBParam;
 import net.java.ao.Query;
@@ -31,11 +32,9 @@ public class HeroesResource {
         this.ao = ao;
     }
 
-    @GET
-    public Response getHeroes(@DefaultValue("") @QueryParam("name") String name)
-    {
+    private Hero[] findHeroes(String name) {
         Hero[] heroes;
-        if (name == "") {
+        if (name.trim() == "") {
             heroes = ao.find(Hero.class);
         } else {
             heroes = ao.find(
@@ -46,10 +45,30 @@ public class HeroesResource {
                 )
             );
         }
+        return heroes;
+    }
+
+    @GET
+    public Response getHeroes(@DefaultValue("") @QueryParam("name") String name)
+    {
+        Hero[] heroes = findHeroes(name);
         List<HeroModel> heroModels = Arrays.stream(heroes)
             .map(HeroModel::new)
             .collect(Collectors.toList());
         return Response.ok(heroModels).build();
+    }
+
+    @GET
+    @Path("autocomplete")
+    public Response getHeroesAutocomplete(@DefaultValue("") @QueryParam("q") String name)
+    {
+        Hero[] heroes = findHeroes(name);
+        List<AutocompleteModel> autocompleteModels = Arrays.stream(heroes)
+            .map(h ->
+                new AutocompleteModel(h.getName(), h.getID())
+            )
+            .collect(Collectors.toList());
+        return Response.ok(autocompleteModels).build();
     }
 
     @POST
