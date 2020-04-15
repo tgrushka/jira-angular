@@ -13,6 +13,10 @@ import net.java.ao.Query;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("/heroes")
 @Produces(MediaType.APPLICATION_JSON)
@@ -42,16 +46,19 @@ public class HeroesResource {
                 )
             );
         }
-        return Response.ok(new HeroModel(heroes)).build();
+        List<HeroModel> heroModels = Arrays.stream(heroes)
+            .map(HeroModel::new)
+            .collect(Collectors.toList());
+        return Response.ok(heroModels).build();
     }
 
     @POST
     public Response createHero(HeroModel heroModel)
     {
-        if (heroModel.hero != null) {
+        if (heroModel.name != null) {
             Hero hero = ao.create(
                 Hero.class,
-                new DBParam("NAME", heroModel.hero.name)
+                new DBParam("NAME", heroModel.name)
             );
             return Response.ok(new HeroModel(hero)).build();
         } else {
@@ -68,9 +75,14 @@ public class HeroesResource {
         Hero hero = ao.get(Hero.class, id);
         if (hero == null)
             return Response.status(Response.Status.NOT_FOUND).build();
-        hero.setName(heroModel.hero.name);
-        hero.save();
-        return Response.ok(new HeroModel(hero)).build();
+
+        if (heroModel.name != null) {
+            hero.setName(heroModel.name);
+            hero.save();
+            return Response.ok(new HeroModel(hero)).build();
+        } else {
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        }
     }
 
     @DELETE

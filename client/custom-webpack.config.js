@@ -3,10 +3,9 @@ class FileListPlugin {
     // emit is asynchronous hook, tapping into it using tapAsync, you can use tapPromise/tap(synchronous) as well
     compiler.hooks.emit.tapAsync('FileListPlugin', (compilation, callback) => {
 
-      var xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
-        '<bundles>\n' +
-        '\t<web-resource key="client-resources" name="Client Resources">\n';
-      // '\t\t<dependency>com.atlassian.auiplugin:ajs</dependency>\n';
+      var xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+        + '<bundles>\n'
+        + '\t<web-resource key="client-resources" name="Client Resources">\n';
 
       // Loop through all compiled assets,
       // adding a new line item for each filename.

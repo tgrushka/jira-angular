@@ -14,6 +14,7 @@ const bootstrap = () => {
 if (environment.production) {
   enableProdMode();
 }
+
 if (typeof AJS !== 'undefined') {
   AJS.toInit(() => {
     bootstrap();

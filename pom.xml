@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.atlassian.activeobjects</groupId>
             <artifactId>activeobjects-plugin</artifactId>
-            <version>1.2.3</version>
+            <version>3.2.3</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -172,7 +172,7 @@
                         </goals>
                         <phase>generate-resources</phase>
                         <configuration>
-                            <arguments>build-jira</arguments>
+                            <arguments>build-jira-dev</arguments>
                         </configuration>
                     </execution>
 
@@ -241,7 +241,9 @@
         </plugins>
     </build>
     <properties>
-        <jira.version>7.13.0</jira.version>
+        <!-- version matrix: -->
+        <!-- https://bitbucket.org/atlassian/platform-module-usage/wiki/Jira.md#markdown-header-jira-88 -->
+        <jira.version>8.7.1</jira.version>
         <amps.version>8.0.2</amps.version>
         <plugin.testrunner.version>2.0.1</plugin.testrunner.version>
         <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>

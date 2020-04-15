@@ -28,15 +28,31 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/global.styles.scss"
             ],
             "scripts": []
           },
           "configurations": {
+            "dev": {
+              "scripts": [
+                "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/@atlassian/aui/dist/aui/aui-prototyping.js"
+              ]
+            },
+            "jira-dev": {
+              "scripts": [],
+              "fileReplacements": [{
+                "replace": "src/global.styles.scss",
+                "with": "src/global.styles.prod.scss"
+              }]
+            },
             "production": {
               "fileReplacements": [{
                 "replace": "src/environments/environment.ts",
                 "with": "src/environments/environment.prod.ts"
+              }, {
+                "replace": "src/global.styles.scss",
+                "with": "src/global.styles.prod.scss"
               }],
               "optimization": true,
               "outputHashing": "all",
@@ -65,10 +81,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "com.grushka.heroes.client:build",
+            "browserTarget": "com.grushka.heroes.client:build:dev",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
+            "dev": {
+              "browserTarget": "com.grushka.heroes.client:build:dev"
+            },
             "production": {
               "browserTarget": "com.grushka.heroes.client:build:production"
             }
@@ -92,7 +111,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/global.styles.scss"
             ],
             "scripts": []
           }
